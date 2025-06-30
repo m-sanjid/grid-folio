@@ -7,7 +7,7 @@ const ThemeToggle = () => {
 
   useEffect(() => {
     const userPrefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
+      "(prefers-color-scheme: dark)",
     ).matches;
     const current = localStorage.getItem("theme") as "light" | "dark" | null;
     const initialTheme = current || (userPrefersDark ? "dark" : "light");
@@ -27,17 +27,17 @@ const ThemeToggle = () => {
     <div className="fixed bottom-4 right-4">
       <button
         onClick={toggleTheme}
-        className="relative w-14 h-8 bg-zinc-800 dark:bg-zinc-700 rounded-full transition-colors duration-300 flex items-center px-1"
+        className="relative flex h-8 w-14 items-center rounded-xl bg-zinc-800 px-1 transition-colors duration-300 dark:bg-zinc-700"
         aria-label="Toggle Theme"
       >
         <div
-          className={`absolute inset-0 flex items-center justify-between px-2 text-white text-xs pointer-events-none`}
+          className={`pointer-events-none absolute inset-0 flex items-center justify-between px-2 text-xs text-white`}
         >
           <Sun className="size-4 text-yellow-400" />
           <Moon className="size-4 text-sky-400" />
         </div>
         <span
-          className={`z-10 w-6 h-6 rounded-full bg-white dark:bg-zinc-900 shadow-md transform transition-transform duration-300 ${
+          className={`z-10 h-6 w-6 transform rounded-lg bg-white shadow-md transition-transform duration-300 dark:bg-zinc-900 ${
             theme === "dark" ? "translate-x-6" : "translate-x-0"
           }`}
         />

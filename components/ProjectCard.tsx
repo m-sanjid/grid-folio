@@ -5,9 +5,12 @@ const ProjectCard = () => {
   return (
     <Link
       href="/projects"
-      className="md:col-span-2 gap-4 flex h-full w-full rounded-3xl p-8 bg-noise"
+      className="bg-noise flex h-full w-full flex-col gap-4 rounded-3xl p-8 md:col-span-3 lg:col-span-2"
     >
-      <h2 className="text-sm text-primary mb-4">PROJECTS</h2>
+      <h2 className="mb-4 text-sm text-primary">PROJECTS</h2>
+      <p className="mb-auto text-sm font-medium md:text-lg">
+        A collection of my work across web development, design, and programming
+      </p>
     </Link>
   );
 };

@@ -48,7 +48,7 @@ export async function POST(req: Request) {
     console.error("Error:", err);
     return NextResponse.json(
       { error: "Failed to process request" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

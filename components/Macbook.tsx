@@ -3,13 +3,14 @@ import React from "react";
 
 const Macbook = () => {
   return (
-    <div className="bg-noise rounded-3xl overflow-hidden">
+    <div className="bg-noise hidden w-full overflow-hidden rounded-3xl md:col-span-1 lg:block">
+      {/* Give link to your setup or any image here */}
       <Image
         src="/macbook.jpeg"
         alt="mac"
         width={400}
         height={600}
-        className="w-full h-full object-cover"
+        className="h-full w-full object-cover"
       />
     </div>
   );

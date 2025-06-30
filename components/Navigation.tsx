@@ -1,61 +1,91 @@
-'use client'
+"use client";
 
-import { IconBriefcase, IconHome, IconMail, IconUser } from '@tabler/icons-react'
-import Link from 'next/link'
-import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import {
+  IconBrandGithub,
+  IconBrandX,
+  IconBriefcase,
+  IconHome,
+} from "@tabler/icons-react";
+import Link from "next/link";
+import React, { useState } from "react";
+import { motion } from "motion/react";
 
+// Change it to your own links
 const navItems = [
-  { name: 'Home', href: '#home', icon: <IconHome size={20} /> },
-  { name: 'About', href: '#about', icon: <IconUser size={20} /> },
-  { name: 'Projects', href: '#projects', icon: <IconBriefcase size={20} /> },
-  { name: 'Contact', href: '#contact', icon: <IconMail size={20} /> }
-]
+  {
+    name: "Home",
+    href: "/",
+    icon: (
+      <IconHome className="h-8 w-8 rounded-xl border bg-black/10 p-1 backdrop-blur-md" />
+    ),
+  },
+  {
+    name: "Projects",
+    href: "/projects",
+    icon: (
+      <IconBriefcase className="h-8 w-8 rounded-xl border bg-black/10 p-1 backdrop-blur-md" />
+    ),
+  },
+  {
+    name: "Github",
+    href: "https://github.com/m-sanjid",
+    icon: (
+      <IconBrandGithub className="h-8 w-8 rounded-xl border bg-black/10 p-1 backdrop-blur-md" />
+    ),
+  },
+  {
+    name: "X",
+    href: "https://x.com/dev_sanjid",
+    icon: (
+      <IconBrandX className="h-8 w-8 rounded-xl border bg-black/10 p-1 backdrop-blur-md" />
+    ),
+  },
+];
 
 const Navigation = () => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <motion.nav
       onMouseLeave={() => setHoveredIndex(null)}
-      className="fixed bottom-5 left-1/2 z-50 flex items-center gap-6 px-6 py-4 backdrop-blur-md bg-white/20 dark:bg-zinc-900/40 rounded-full border border-zinc-300/40 dark:border-zinc-700/40 shadow-lg -translate-x-1/2"
+      className="borderborder-zinc-700/50 fixed bottom-4 left-[25%] z-50 flex items-center gap-4 rounded-2xl bg-white/5 px-6 py-3 shadow-xl backdrop-blur-md dark:bg-zinc-900/50 sm:left-[35%] md:left-[40%]"
       initial={{ y: 20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+      transition={{ type: "spring", stiffness: 180, damping: 18 }}
     >
       {navItems.map((item, index) => (
         <Link
           key={index}
           href={item.href}
-          className="relative group focus:outline-none"
+          className="group relative focus:outline-none"
           onMouseEnter={() => setHoveredIndex(index)}
           onFocus={() => setHoveredIndex(index)}
         >
           <motion.div
-            whileHover={{ scale: 1.2 }}
-            className="text-zinc-700 dark:text-zinc-200 hover:text-primary transition-colors"
+            whileHover={{ scale: 1.15 }}
+            transition={{ type: "spring", stiffness: 250, damping: 12 }}
+            className="flex flex-col items-center justify-center text-xs transition-colors"
           >
-            {item.icon}
+            <div className="relative flex h-10 w-10 items-center justify-center">
+              {hoveredIndex === index && (
+                <motion.div
+                  layoutId="glow"
+                  className="absolute inset-0 rounded-full bg-white/20 blur-md"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                />
+              )}
+              {item.icon}
+            </div>
+            <span className="mt-1 font-medium tracking-tighter">
+              {item.name}
+            </span>
           </motion.div>
-
-          <AnimatePresence>
-            {hoveredIndex === index && (
-              <motion.div
-                key="tooltip"
-                initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                animate={{ opacity: 1, y: -10, scale: 1 }}
-                exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                transition={{ duration: 0.2 }}
-                className="absolute -top-10 left-1/2 -translate-x-1/2 bg-zinc-800 text-white text-xs px-2 py-1 rounded-md shadow-md pointer-events-none select-none"
-              >
-                {item.name}
-              </motion.div>
-            )}
-          </AnimatePresence>
         </Link>
       ))}
     </motion.nav>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;

@@ -6,21 +6,31 @@ const About = () => {
   return (
     <div
       id="about"
-      className="bg-noise rounded-3xl p-8 flex flex-col justify-between"
+      className="bg-noise flex w-full flex-col justify-between rounded-3xl p-8"
     >
       <div>
-        <h2 className="text-sm text-primary mb-4">ABOUT</h2>
+        <h2 className="mb-4 text-sm text-primary">ABOUT</h2>
+        {/* Give your about me here */}
         <p className="text-2xl font-medium">
           Passionate about design and enjoy solving problems.
         </p>
       </div>
-      <div className="flex justify-end mt-8">
-        <button className="rounded-full p-2 bg-zinc-800 hover:bg-zinc-700 text-secondary transition-colors">
+      <div className="mt-8 flex justify-end gap-4">
+        {/* Give your Resume link here */}
+        <button className="rounded-2xl border bg-neutral-400 p-2 text-secondary transition-colors hover:bg-zinc-700 dark:bg-zinc-800">
+          <Link href="/" className="flex items-center gap-2">
+            <div className="rounded-[8px] bg-zinc-900 p-2 text-sm font-medium dark:bg-white">
+              Resume
+            </div>
+            <ArrowUpRight className="size-5 text-black dark:text-white" />
+          </Link>
+        </button>
+        <button className="rounded-2xl border bg-neutral-400 p-2 text-secondary transition-colors hover:bg-zinc-700 dark:bg-zinc-800">
           <Link href="/projects" className="flex items-center gap-2">
-            <div className="text-sm font-medium dark:bg-white bg-zinc-900 p-2 rounded-full">
+            <div className="rounded-[8px] bg-zinc-900 p-2 text-sm font-medium dark:bg-white">
               Projects
             </div>
-            <ArrowUpRight className="size-5 text-white" />
+            <ArrowUpRight className="size-5 text-black dark:text-white" />
           </Link>
         </button>
       </div>

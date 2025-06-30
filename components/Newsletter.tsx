@@ -44,13 +44,13 @@ const Newsletter = () => {
         handleSubmit();
       }}
       id="newsletter"
-      className="bg-noise text-black dark:text-white rounded-3xl p-8 md:col-span-2 w-full"
+      className="bg-noise w-full rounded-3xl p-8 text-black dark:text-white md:col-span-2"
     >
-      <h2 className="md:text-2xl text-xl font-medium mb-6">
+      <h2 className="mb-6 text-xl font-medium md:text-2xl">
         Get design tips & guides straight to your inbox for free!
       </h2>
 
-      <motion.div layout className="flex flex-col sm:flex-row gap-4">
+      <motion.div layout className="flex flex-col gap-4 sm:flex-row">
         <motion.input
           layoutId="newsletter-input"
           type="email"
@@ -59,13 +59,13 @@ const Newsletter = () => {
           required
           autoComplete="email"
           placeholder="Your email address"
-          className="flex-1 dark:bg-zinc-800 bg-neutral-200 rounded-2xl px-6 py-3 text-black dark:text-white outline-none"
+          className="flex-1 rounded-2xl bg-neutral-200 px-6 py-3 text-black outline-none dark:bg-zinc-800 dark:text-white"
         />
         <motion.button
           layoutId="newsletter-button"
           type="submit"
           disabled={isSubmitting}
-          className="dark:bg-zinc-800 bg-neutral-200 rounded-2xl px-6 py-3 transition-colors"
+          className="rounded-2xl bg-neutral-200 px-6 py-3 transition-colors dark:bg-zinc-800"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

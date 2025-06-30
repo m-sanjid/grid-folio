@@ -93,7 +93,6 @@ body {
   }
 }
 
-
 @layer utilities {
   .bg-noise {
     @apply bg-noise-light dark:bg-noise-dark;

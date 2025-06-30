@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
@@ -49,8 +49,8 @@ const SocialShare = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <div 
-      className="md:col-span-1 grid grid-cols-2 gap-8 p-8 rounded-3xl"
+    <div
+      className="grid grid-cols-2 gap-8 rounded-3xl p-8 md:col-span-1"
       onMouseLeave={() => setHoveredIndex(null)}
     >
       {Socials.map((social, index) => (
@@ -65,24 +65,20 @@ const SocialShare = () => {
           onMouseLeave={() => setActiveIndex(null)}
           className="relative flex items-center justify-center"
         >
-          <div 
-            className={`
-              w-full rounded-2xl flex py-4 items-center justify-center
-              transition-all duration-300 transform
-              ${hoveredIndex === index ? 'scale-95' : 'scale-100'}
-              ${activeIndex === index ?
-                // Pressed state
-                'bg-gray-100 dark:bg-zinc-800 shadow-inner shadow-gray-400 dark:shadow-neutral-950' :
-                // Default/Hover state
-                'bg-gray-100 dark:bg-zinc-800 shadow-md shadow-gray-300 dark:shadow-zinc-900'
-              }
-            `}
+          <div
+            className={`flex w-full transform items-center justify-center rounded-2xl py-4 transition-all duration-300 ${hoveredIndex === index ? "scale-95" : "scale-100"} ${
+              activeIndex === index
+                ? // Pressed state
+                  "bg-gray-100 shadow-inner shadow-gray-400 dark:bg-zinc-800 dark:shadow-neutral-950"
+                : // Default/Hover state
+                  "bg-gray-100 shadow-md shadow-gray-300 dark:bg-zinc-800 dark:shadow-zinc-900"
+            } `}
           >
             {social.icon}
           </div>
           {hoveredIndex === index && (
             <div className="absolute -bottom-6 w-full text-center">
-              <span className="text-gray-700 dark:text-gray-300 text-sm font-medium">
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
                 {social.name}
               </span>
             </div>
