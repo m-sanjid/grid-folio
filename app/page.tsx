@@ -10,6 +10,26 @@ import Resources from "@/components/Resources";
 import Image1 from "@/components/Image1";
 import ProfileImage from "@/components/ProfileImage";
 import Intro from "@/components/Intro";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Gridfolio",
+  description: "Gridfolio is a portfolio template for developers",
+  openGraph: {
+    title: "Gridfolio",
+    description: "Gridfolio is a portfolio template for developers",
+    images: ["/og-image.jpeg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gridfolio",
+    description: "Gridfolio is a portfolio template for developers",
+    images: ["/og-image.jpeg"],
+  },
+  keywords: ["Gridfolio", "portfolio", "template", "developer", "web", "design"],
+  authors: [{ name: "Sanjid", url: "https://sanjid.in" }],
+  creator: "Sanjid",
+};
 
 export default function Home() {
   return (
