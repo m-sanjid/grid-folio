@@ -1,21 +1,79 @@
-import React from 'react'
+"use client";
+
+import React, { useState } from "react";
+import { toast } from "sonner";
+import { motion } from "motion/react";
+
+const isValidEmail = (email: string) =>
+  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
 const Newsletter = () => {
-    return (
-        <div id="newsletter" className="bg-noise text-black dark:text-white rounded-3xl p-8 md:col-span-2">
-          <h2 className="text-2xl font-medium mb-6">Get design tips & guides straight to your inbox for free!</h2>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="flex-1 dark:bg-zinc-800 bg-neutral-200 rounded-full px-6 py-3 text-black dark:text-white outline-none"
-            />
-            <button className="dark:bg-zinc-800 bg-neutral-200 rounded-full px-6 py-3 transition-colors">
-              Subscribe
-            </button>
-          </div>
-        </div>
-    )
-}
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-export default Newsletter
+  const handleSubmit = async () => {
+    if (!isValidEmail(email)) {
+      return toast.error("Please enter a valid email");
+    }
+
+    setIsSubmitting(true);
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        body: JSON.stringify({ email }),
+      });
+
+      if (res.ok) {
+        toast.success("Thanks! You'll hear from me soon.");
+        setEmail("");
+      } else {
+        toast.error("Something went wrong.");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Connection issue. Try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit();
+      }}
+      id="newsletter"
+      className="bg-noise text-black dark:text-white rounded-3xl p-8 md:col-span-2 w-full"
+    >
+      <h2 className="md:text-2xl text-xl font-medium mb-6">
+        Get design tips & guides straight to your inbox for free!
+      </h2>
+
+      <motion.div layout className="flex flex-col sm:flex-row gap-4">
+        <motion.input
+          layoutId="newsletter-input"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          autoComplete="email"
+          placeholder="Your email address"
+          className="flex-1 dark:bg-zinc-800 bg-neutral-200 rounded-2xl px-6 py-3 text-black dark:text-white outline-none"
+        />
+        <motion.button
+          layoutId="newsletter-button"
+          type="submit"
+          disabled={isSubmitting}
+          className="dark:bg-zinc-800 bg-neutral-200 rounded-2xl px-6 py-3 transition-colors"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          {isSubmitting ? "Subscribing..." : "Subscribe"}
+        </motion.button>
+      </motion.div>
+    </form>
+  );
+};
+
+export default Newsletter;
