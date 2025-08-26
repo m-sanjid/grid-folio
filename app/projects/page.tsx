@@ -31,12 +31,12 @@ const Projects = () => {
             src={project.image}
             alt={project.title}
             className={`h-full w-full object-cover transition-all duration-500 ${
-              hovered ? "scale-105 opacity-100" : "opacity-20"
+              hovered ? "scale-105 opacity-100" : "opacity-60"
             }`}
           />
           {/* Dark gradient overlay when not hovered */}
           {!hovered && (
-            <div className="absolute inset-0 bg-linear-to-b from-black/50 to-black/80" />
+            <div className="absolute inset-0 bg-linear-to-b from-black/30 to-black/60" />
           )}
         </div>
 
@@ -80,7 +80,7 @@ const Projects = () => {
         >
           <Link
             href={project.link}
-            className="flex items-center rounded-md bg-white px-4 py-2 font-medium text-black transition-all hover:bg-neutral-100"
+            className="z-40 flex items-center rounded-md bg-white px-4 py-2 font-medium text-black transition-all hover:bg-neutral-100"
           >
             View Project
             <IconArrowRight className="ml-1 h-4 w-4" />
