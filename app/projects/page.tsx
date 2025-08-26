@@ -36,7 +36,7 @@ const Projects = () => {
           />
           {/* Dark gradient overlay when not hovered */}
           {!hovered && (
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/80" />
+            <div className="absolute inset-0 bg-linear-to-b from-black/50 to-black/80" />
           )}
         </div>
 
@@ -48,23 +48,23 @@ const Projects = () => {
         >
           <div>
             <div className="mb-4 flex items-start justify-between">
-              <span className="inline-block rounded-lg bg-accent p-2 text-primary">
+              <span className="bg-accent text-primary inline-block rounded-lg p-2">
                 {project.icon}
               </span>
-              <span className="rounded-full bg-accent px-2 py-1 text-xs font-medium text-muted-foreground">
+              <span className="bg-accent text-muted-foreground rounded-full px-2 py-1 text-xs font-medium">
                 {project.category}
               </span>
             </div>
             <h3 className="mb-2 text-xl font-bold text-white">
               {project.title}
             </h3>
-            <p className="text-sm text-gray-200">{project.description}</p>
+            <p className="text-sm text-neutral-200">{project.description}</p>
           </div>
 
           <div className="mt-6">
             <a
               href={project.link}
-              className="flex items-center text-sm font-medium text-white hover:text-gray-200"
+              className="flex items-center text-sm font-medium text-white hover:text-neutral-200"
             >
               View Project
               <IconArrowRight className="ml-1 h-4 w-4" />
@@ -80,7 +80,7 @@ const Projects = () => {
         >
           <Link
             href={project.link}
-            className="flex items-center rounded-md bg-white px-4 py-2 font-medium text-black transition-all hover:bg-gray-100"
+            className="flex items-center rounded-md bg-white px-4 py-2 font-medium text-black transition-all hover:bg-neutral-100"
           >
             View Project
             <IconArrowRight className="ml-1 h-4 w-4" />
@@ -91,11 +91,11 @@ const Projects = () => {
   };
 
   return (
-    <div className="min-h-screen bg-neutral-200 px-4 py-12 dark:bg-zinc-900 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-neutral-200 px-4 py-12 sm:px-6 lg:px-8 dark:bg-zinc-900">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center">
-          <h1 className="mb-4 text-4xl font-bold text-primary">My Projects</h1>
-          <p className="mx-auto max-w-2xl text-muted-foreground">
+          <h1 className="text-primary mb-4 text-4xl font-bold">My Projects</h1>
+          <p className="text-muted-foreground mx-auto max-w-2xl">
             A collection of my work across web development, design, and
             programming
           </p>

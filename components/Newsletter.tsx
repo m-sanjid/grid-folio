@@ -44,7 +44,7 @@ const Newsletter = () => {
         handleSubmit();
       }}
       id="newsletter"
-      className="bg-noise w-full rounded-3xl p-8 text-black dark:text-white md:col-span-2"
+      className="bg-noise w-full rounded-3xl p-8 text-black md:col-span-2 dark:text-white"
     >
       <h2 className="mb-6 text-xl font-medium md:text-2xl">
         Get design tips & guides straight to your inbox for free!
@@ -59,7 +59,7 @@ const Newsletter = () => {
           required
           autoComplete="email"
           placeholder="Your email address"
-          className="flex-1 rounded-2xl bg-neutral-200 px-6 py-3 text-black outline-none dark:bg-zinc-800 dark:text-white"
+          className="flex-1 rounded-2xl bg-neutral-200 px-6 py-3 text-black outline-hidden dark:bg-zinc-800 dark:text-white"
         />
         <motion.button
           layoutId="newsletter-button"

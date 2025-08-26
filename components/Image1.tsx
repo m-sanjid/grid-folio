@@ -16,7 +16,7 @@ const Image1 = () => {
         height={600}
         className="h-full w-full object-cover"
       />
-      <div className="absolute inset-0 z-10 flex items-end justify-center bg-black/50 opacity-0 backdrop-blur-sm transition-opacity duration-300 ease-in-out hover:opacity-100">
+      <div className="absolute inset-0 z-10 flex items-end justify-center bg-black/50 opacity-0 backdrop-blur-xs transition-opacity duration-300 ease-in-out hover:opacity-100">
         <p className="bg-noise mb-3 rounded-2xl p-4 text-2xl font-bold">
           View Project
         </p>

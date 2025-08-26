@@ -61,30 +61,25 @@ const TechStack = () => {
   return (
     <div
       id="techStack"
-      className="bg-noise rounded-3xl p-8 text-black dark:text-white md:col-span-2"
+      onMouseLeave={() => setHoveredIndex(null)}
+      className="bg-noise rounded-3xl p-8 text-black md:col-span-2 dark:text-white"
     >
       <h2 className="mb-6 text-2xl font-medium">Stack I use</h2>
-      <div
-        onMouseLeave={() => setHoveredIndex(null)}
-        className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4"
-      >
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
         {techStack.map(({ name, icon, bg }, index) => (
           <div
             key={name}
-            className="relative flex cursor-pointer items-center justify-center rounded-xl bg-secondary/20 p-4 text-primary transition-transform hover:scale-105"
+            className="bg-secondary/20 text-primary relative flex cursor-pointer items-center justify-center rounded-xl p-4 transition-transform hover:scale-105"
             title={name}
             onMouseEnter={() => setHoveredIndex(index)}
           >
             <div className={`${bg} rounded-xl p-3`}>{icon}</div>
             {hoveredIndex === index && (
               <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.1 }}
                 layoutId="techStack"
-                className="absolute -top-4 flex items-center justify-center rounded-xl bg-primary px-2 py-px"
+                className="bg-primary absolute -top-4 flex items-center justify-center rounded-xl px-2 py-px"
               >
-                <p className="text-sm font-medium text-secondary">{name}</p>
+                <p className="text-secondary text-sm font-medium">{name}</p>
               </motion.div>
             )}
           </div>

@@ -14,7 +14,7 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className="bg-noise w-full rounded-3xl p-8 text-black dark:text-white md:col-span-3 lg:col-span-2"
+      className="bg-noise w-full rounded-3xl p-8 text-black md:col-span-3 lg:col-span-2 dark:text-white"
     >
       <div className="flex h-full flex-col justify-between">
         <h2 className="text-2xl font-medium">Have a project in mind?</h2>

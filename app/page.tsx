@@ -26,14 +26,21 @@ export const metadata: Metadata = {
     description: "Gridfolio is a portfolio template for developers",
     images: ["/og-image.jpeg"],
   },
-  keywords: ["Gridfolio", "portfolio", "template", "developer", "web", "design"],
+  keywords: [
+    "Gridfolio",
+    "portfolio",
+    "template",
+    "developer",
+    "web",
+    "design",
+  ],
   authors: [{ name: "Sanjid", url: "https://sanjid.in" }],
   creator: "Sanjid",
 };
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-neutral-200 p-4 text-primary dark:bg-zinc-900 md:p-6">
+    <div className="text-primary min-h-screen bg-neutral-200 p-4 md:p-6 dark:bg-zinc-900">
       <div className="mx-auto mb-20 grid max-w-7xl grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
         <Intro />
         <ProfileImage />
